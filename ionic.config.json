@@ -1,0 +1,7 @@
+{
+  "name": "books-ai-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
