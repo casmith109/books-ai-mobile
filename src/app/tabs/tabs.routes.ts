@@ -7,30 +7,45 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+        path: 'home-tab',
+        loadComponent: () => import('./home.tab').then((m) => m.HomeTab),
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/home/home.routes').then(m => m.routes),
+          }
+        ]
       },
       {
-        path: 'tab2',
-        loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+        path: 'books-tab',
+        loadComponent: () => import('./books.tab').then((m) => m.BooksTab),
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/books/books.routes').then(m => m.routes),
+          }
+        ]
       },
       {
-        path: 'tab3',
-        loadComponent: () =>
-          import('../tab3/tab3.page').then((m) => m.Tab3Page),
+        path: 'settings-tab',
+        loadComponent: () => import('./settings.tab').then((m) => m.SettingsTab),
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/settings/settings.routes').then(m => m.routes),
+          }
+        ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home-tab/home',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home-tab/home',
     pathMatch: 'full',
   },
 ];
