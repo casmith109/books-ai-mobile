@@ -12,7 +12,7 @@ export const routes: Routes = [
       },
       {
         path: 'books',
-        loadComponent: () => import('./books.tab').then((m) => m.BooksTab),
+        loadChildren: () => import('../books/books.routes').then((m) => m.routes),
       },
       {
         path: 'settings',

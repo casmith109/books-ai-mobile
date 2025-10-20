@@ -1,5 +1,6 @@
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { Component } from '@angular/core';
+import { CreateBookCard } from '../components/cards/create-book.card';
 
 @Component({
   selector: 'home-tab',
@@ -22,10 +23,11 @@ import { Component } from '@angular/core';
     <p>Welcome to the Home Page!</p>
     <p>Navigate using the tabs below.</p>
 
+    <create-book-card></create-book-card>
 
   </ion-content>
   `,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, CreateBookCard],
 })
 export class HomeTab {
   constructor() {}
